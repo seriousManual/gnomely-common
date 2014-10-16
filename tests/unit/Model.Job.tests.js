@@ -48,7 +48,7 @@ describe('JobModel', function () {
 
         it('should return the correct error', function () {
             expect(j.type).to.equal('fooType');
-            expect(j.createDate.toString()).to.equal('Thu Jan 01 1970 01:00:00 GMT+0100 (W. Europe Standard Time)');
+            expect(j.createDate.toString()).to.match(/Thu Jan 01 1970/);
             expect(j.payload).to.deep.equal({});
             expect(j.ackDate).to.be.null;
         });
@@ -71,9 +71,9 @@ describe('JobModel', function () {
 
         it('should return the correct error', function () {
             expect(j.type).to.equal('fooType');
-            expect(j.createDate.toString()).to.equal('Thu Jan 01 1970 01:00:00 GMT+0100 (W. Europe Standard Time)');
+            expect(j.createDate.toString()).to.match(/Thu Jan 01 1970/);
             expect(j.payload).to.deep.equal({foo: 'bar'});
-            expect(j.ackDate.toString()).to.equal('Thu Jan 01 1970 01:00:00 GMT+0100 (W. Europe Standard Time)');
+            expect(j.ackDate.toString()).to.match(/Thu Jan 01 1970/);
         });
     });
 });
