@@ -1,0 +1,34 @@
+{
+  "name": "gnomely-common",
+  "version": "0.0.1",
+  "description": "gnomely common elements",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/zaphod1984/gnomely-common.git"
+  },
+  "keywords": [
+    "gnomely"
+  ],
+  "author": "Manuel Ernst <zaphod84@gmx.de>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/zaphod1984/gnomely-common/issues"
+  },
+  "dependencies": {
+    "async": "^0.9.0",
+    "mongoose": "^3.8.16",
+    "ms": "^0.6.2"
+  },
+  "devDependencies": {
+    "chai": "^1.9.1",
+    "mocha": "^1.21.4",
+    "mockgoose": "^1.10.7",
+    "sinon": "^1.10.3",
+    "sinon-chai": "^2.6.0"
+  },
+  "engines": {
+    "node": "0.10.x"
+  }
+}
