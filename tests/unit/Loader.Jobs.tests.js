@@ -8,9 +8,7 @@ describe('JobLoader', function () {
     var JobLoader;
 
     before(function (done) {
-        JobLoader = require('../../lib/persistence/loader/JobLoader');
-
-        var JobModel = require('../../lib/persistence/model/Job');
+        JobLoader = require('../../').loader.JobLoader;
 
         require('../util/dbPrepare.threeJobs')(done);
     });

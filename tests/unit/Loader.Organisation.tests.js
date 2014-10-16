@@ -8,11 +8,7 @@ describe('OrganisationLoader', function () {
     var organisation, OrganisationLoader;
 
     before(function (done) {
-        OrganisationLoader = require('../../lib/persistence/loader/OrganisationLoader');
-
-        //the models would not have been initialized otherwise..... dirty hack
-        var UserModel = require('../../lib/persistence/model/User');
-        var OrganisationModel = require('../../lib/persistence/model/Organisation');
+        OrganisationLoader = require('../../').loader.OrganisationLoader;
 
         require('../util/dbPrepare.oneOrganisation.oneUser.threeWishes')(done);
     });

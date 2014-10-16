@@ -5,10 +5,10 @@ var sinon = require('sinon');
 var mocks = require('../util/mocks');
 
 describe('UserLoader', function () {
-    var user;
+    var user, UserLoader;
 
     before(function (done) {
-        var UserModel = require('../../lib/persistence/model/User');
+        UserLoader = require('../../').loader.UserLoader;
 
         require('../util/dbPrepare.oneOrganisation.oneUser.threeWishes')(done);
     });
@@ -21,7 +21,6 @@ describe('UserLoader', function () {
         var result, error;
 
         before(function (done) {
-            var UserLoader = require('../../lib/persistence/loader/UserLoader');
             var userLoader = new UserLoader();
 
             userLoader.loadUserByMail('foo@mail.com', function (_error, _result) {
@@ -46,7 +45,6 @@ describe('UserLoader', function () {
         var result, error;
 
         before(function (done) {
-            var UserLoader = require('../../lib/persistence/loader/UserLoader');
             var userLoader = new UserLoader();
 
             userLoader.loadUserByMail('not@found.com', function (_error, _result) {
@@ -69,7 +67,6 @@ describe('UserLoader', function () {
         var result, error;
 
         before(function (done) {
-            var UserLoader = require('../../lib/persistence/loader/UserLoader');
             var userLoader = new UserLoader();
 
             userLoader.loadUserById('50341373e894ad16347fff02', function (_error, _result) {
@@ -92,7 +89,6 @@ describe('UserLoader', function () {
         var result, error;
 
         before(function (done) {
-            var UserLoader = require('../../lib/persistence/loader/UserLoader');
             var userLoader = new UserLoader();
 
             userLoader.loadUserById('50341373e894ad16347efe02', function (_error, _result) {

@@ -9,7 +9,7 @@ describe('Wishloader', function () {
 
     before(function (done) {
         WishModel = require('../../lib/persistence/model/Wish');
-        WishLoader = require('../../lib/persistence/loader/WishLoader');
+        WishLoader = require('../../').loader.WishLoader;
         wishLoader = new WishLoader();
 
         require('../util/dbPrepare.oneOrganisation.oneUser.threeWishes')(done);
