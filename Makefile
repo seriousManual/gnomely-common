@@ -12,7 +12,6 @@ test:
 make travis:
 	@make install-packages
 	@make test
-	@make cover
 
 make deployment:
 	make install-packages
