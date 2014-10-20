@@ -50,5 +50,40 @@ describe('JobLoader', function () {
             expect(jobs.length).to.equal(1);
             expect(jobs[0].type).to.equal('fooType');
         });
-    })
+    });
+
+    describe('unacknowledgedByType', function () {
+        var error, jobs;
+
+        before(function (done) {
+            (new JobLoader()).loadJobsUnacknowledgedByType('fooType', function (_error, _jobs) {
+                error = _error;
+                jobs = _jobs;
+                done();
+            });
+        });
+
+        it('should load the latest wishes since date', function () {
+            expect(error).to.be.null;
+            expect(jobs.length).to.equal(1);
+            expect(jobs[0].type).to.equal('fooType');
+        });
+    });
+
+    describe('acknowledge', function () {
+        var error, job;
+
+        before(function (done) {
+            (new JobLoader()).acknowledgeJob('54454b2973fca3141c272d1e', function (_error, _job) {
+                error = _error;
+                job = _job;
+                done();
+            });
+        });
+
+        it('should load the latest wishes since date', function () {
+            expect(error).to.be.null;
+            expect(job.ack).to.be.true;
+        });
+    });
 });

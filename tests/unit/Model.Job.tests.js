@@ -50,7 +50,7 @@ describe('JobModel', function () {
             expect(j.type).to.equal('fooType');
             expect(j.createDate.toString()).to.match(/Thu Jan 01 1970/);
             expect(j.payload).to.deep.equal({});
-            expect(j.ackDate).to.be.null;
+            expect(j.ack).to.be.false;
         });
     });
 
@@ -61,7 +61,7 @@ describe('JobModel', function () {
             j = new JobModel({
                 type: 'fooType',
                 payload: {foo: 'bar'},
-                ackDate: new Date()
+                ack: true
             });
             j.save(function (_error) {
                 error = _error;
@@ -73,7 +73,7 @@ describe('JobModel', function () {
             expect(j.type).to.equal('fooType');
             expect(j.createDate.toString()).to.match(/Thu Jan 01 1970/);
             expect(j.payload).to.deep.equal({foo: 'bar'});
-            expect(j.ackDate.toString()).to.match(/Thu Jan 01 1970/);
+            expect(j.ack).to.be.true;
         });
     });
 });
