@@ -50,11 +50,13 @@ function dbPrepare (callback) {
                 bought: {
                     author: '50341373e894ad16347efe02'
                 },
-                comments: [{
-                    _id: '50313373e894ad16347efe05',
-                    author: {_id: '50341373e894ad16347efe02', name: 'fooName'},
-                    text: 'fooCommentText'
-                }]
+                comments: [
+                    {
+                        _id: '50313373e894ad16347efe05',
+                        author: {_id: '50341373e894ad16347efe02', name: 'fooName'},
+                        text: 'fooCommentText'
+                    }
+                ]
             })).save(callback);
         }
     ], callback);

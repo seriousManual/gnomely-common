@@ -74,8 +74,8 @@ describe('Wishloader', function () {
 
         describe('success', function () {
             before(function (done) {
-                (new WishModel({title: 'deleteWishTitle', content: 'deleteWishContent', organisation: 'deleteWishOrganisation', author: '50341373e894ad16347efe01'})).save(function(error, _wish) {
-                    wishLoader.deleteWish(_wish, function(_error) {
+                (new WishModel({title: 'deleteWishTitle', content: 'deleteWishContent', organisation: 'deleteWishOrganisation', author: '50341373e894ad16347efe01'})).save(function (error, _wish) {
+                    wishLoader.deleteWish(_wish, function (_error) {
                         error = _error;
 
                         WishModel.count({title: 'deleteWishTitle'}, function (error, _count) {
@@ -93,7 +93,7 @@ describe('Wishloader', function () {
                 expect(error).to.be.undefined;
             });
 
-            it('should delete', function() {
+            it('should delete', function () {
                 expect(count).to.equal(0);
             });
         });
@@ -207,7 +207,7 @@ describe('Wishloader', function () {
 
         describe('success', function () {
             before(function (done) {
-                wishLoader.setBought('50341373e894ad16347efe05', '50341373e894ad16347efe02', function(_error, _wish) {
+                wishLoader.setBought('50341373e894ad16347efe05', '50341373e894ad16347efe02', function (_error, _wish) {
                     wish = _wish;
                     error = _error;
                     done();
@@ -230,7 +230,7 @@ describe('Wishloader', function () {
 
         describe('success', function () {
             before(function (done) {
-                wishLoader.addComment('50341373e894ad16347efe04', '50341373e894ad16347efe02', 'fooName', 'fooText', function(_error, _wish) {
+                wishLoader.addComment('50341373e894ad16347efe04', '50341373e894ad16347efe02', 'fooName', 'fooText', function (_error, _wish) {
                     wish = _wish;
                     error = _error;
                     done();
@@ -255,7 +255,7 @@ describe('Wishloader', function () {
 
         describe('success', function () {
             before(function (done) {
-                wishLoader.deleteComment('50341373e894ad16347efe05', '50313373e894ad16347efe05', function(_error, _wish) {
+                wishLoader.deleteComment('50341373e894ad16347efe05', '50313373e894ad16347efe05', function (_error, _wish) {
                     wish = _wish;
                     error = _error;
                     done();

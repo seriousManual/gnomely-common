@@ -22,7 +22,7 @@ describe('JobModel', function () {
 
         before(function (done) {
             j = new JobModel({});
-            j.save(function(_error) {
+            j.save(function (_error) {
                 error = _error;
                 done();
             });
@@ -40,7 +40,7 @@ describe('JobModel', function () {
             j = new JobModel({
                 type: 'fooType'
             });
-            j.save(function(_error) {
+            j.save(function (_error) {
                 error = _error;
                 done();
             });
@@ -63,7 +63,7 @@ describe('JobModel', function () {
                 payload: {foo: 'bar'},
                 ackDate: new Date()
             });
-            j.save(function(_error) {
+            j.save(function (_error) {
                 error = _error;
                 done();
             });
