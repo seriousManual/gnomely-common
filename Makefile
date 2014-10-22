@@ -1,5 +1,5 @@
 run-unit-tests:
-	NODE_ENV=test mocha --timeout 10000 --reporter dot $(shell find tests/unit -name "*.tests.js")
+	NODE_ENV=test ./node_modules/.bin/mocha --timeout 10000 --reporter dot $(shell find tests/unit -name "*.tests.js")
 
 install-packages:
 	npm i
