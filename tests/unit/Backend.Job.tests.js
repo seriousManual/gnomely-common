@@ -47,5 +47,22 @@ describe('backendJob', function () {
                 }
             });
         });
+
+        it('should return the correct Job from payload', function () {
+            var createdJob = MailJob.fromPayload({
+                to: 'toFoo', from: 'fromFoo', subject: 'subjectFoo', template: 'templateFoo', data: {data: 'foo'}
+            }).createPersistenceJob().toJSON();
+
+            expect(createdJob.type).to.equal('mail');
+            expect(createdJob.payload).to.deep.equal({
+                to: 'toFoo',
+                from: 'fromFoo',
+                subject: 'subjectFoo',
+                template: 'templateFoo',
+                data: {
+                    data: 'foo'
+                }
+            });
+        });
     });
 });
