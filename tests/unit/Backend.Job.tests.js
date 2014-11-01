@@ -32,6 +32,10 @@ describe('backendJob', function () {
             MailJob = require('../../').jobs.Mail;
         });
 
+        it('should hava a key', function() {
+            expect(MailJob.key).to.equal('mail');
+        });
+
         describe('createJob', function() {
             var mailJob;
 
