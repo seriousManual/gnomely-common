@@ -44,10 +44,10 @@ describe('backendJob', function () {
             });
 
             it('should return the correct Job', function () {
-                var createdJob = mailJob.createPersistenceJob().toJSON();
+                var persistenceJob = mailJob.createPersistenceJob().toJSON();
 
-                expect(createdJob.type).to.equal('mail');
-                expect(createdJob.payload).to.deep.equal({
+                expect(persistenceJob.type).to.equal('mail');
+                expect(persistenceJob.payload).to.deep.equal({
                     to: 'toFoo',
                     from: 'fromFoo',
                     subject: 'subjectFoo',
@@ -57,21 +57,29 @@ describe('backendJob', function () {
                     },
                     language: 'de'
                 });
+
+                expect(mailJob.to()).to.equal('toFoo');
+                expect(mailJob.from()).to.equal('fromFoo');
+                expect(mailJob.subject()).to.equal('subjectFoo');
+                expect(mailJob.template()).to.equal('templateFoo');
+                expect(mailJob.data()).to.deep.equal({data: 'foo'});
+                expect(mailJob.language()).to.equal('de');
             });
         });
 
         describe('createJob from payload', function() {
-            var createdJob;
+            var persistenceJob, mailJob;
 
             before(function() {
-                createdJob = MailJob.fromPayload({
+                mailJob = MailJob.fromPayload({
                     to: 'toFoo', from: 'fromFoo', subject: 'subjectFoo', template: 'templateFoo', data: {data: 'foo'}, language: 'fooLanguage'
-                }).createPersistenceJob().toJSON();
+                });
+                persistenceJob = mailJob.createPersistenceJob().toJSON();
             });
 
             it('should return the correct Job from payload', function () {
-                expect(createdJob.type).to.equal('mail');
-                expect(createdJob.payload).to.deep.equal({
+                expect(persistenceJob.type).to.equal('mail');
+                expect(persistenceJob.payload).to.deep.equal({
                     to: 'toFoo',
                     from: 'fromFoo',
                     subject: 'subjectFoo',
@@ -81,6 +89,13 @@ describe('backendJob', function () {
                     },
                     language: 'fooLanguage'
                 });
+
+                expect(mailJob.to()).to.equal('toFoo');
+                expect(mailJob.from()).to.equal('fromFoo');
+                expect(mailJob.subject()).to.equal('subjectFoo');
+                expect(mailJob.template()).to.equal('templateFoo');
+                expect(mailJob.data()).to.deep.equal({data: 'foo'});
+                expect(mailJob.language()).to.equal('fooLanguage');
             });
         });
     });
