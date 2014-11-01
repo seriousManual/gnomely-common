@@ -41,6 +41,7 @@ describe('backendJob', function () {
 
             before(function () {
                 mailJob = new MailJob('fromFoo', 'toFoo', 'subjectFoo', 'templateFoo', {data: 'foo'}, 'de');
+                mailJob.id('idFoo');
             });
 
             it('should return the correct Job', function () {
@@ -58,6 +59,7 @@ describe('backendJob', function () {
                     language: 'de'
                 });
 
+                expect(mailJob.id()).to.equal('idFoo');
                 expect(mailJob.to()).to.equal('toFoo');
                 expect(mailJob.from()).to.equal('fromFoo');
                 expect(mailJob.subject()).to.equal('subjectFoo');
@@ -74,6 +76,7 @@ describe('backendJob', function () {
                 mailJob = MailJob.fromPayload({
                     to: 'toFoo', from: 'fromFoo', subject: 'subjectFoo', template: 'templateFoo', data: {data: 'foo'}, language: 'fooLanguage'
                 });
+                mailJob.id('idFoo');
                 persistenceJob = mailJob.createPersistenceJob().toJSON();
             });
 
@@ -90,6 +93,7 @@ describe('backendJob', function () {
                     language: 'fooLanguage'
                 });
 
+                expect(mailJob.id()).to.equal('idFoo');
                 expect(mailJob.to()).to.equal('toFoo');
                 expect(mailJob.from()).to.equal('fromFoo');
                 expect(mailJob.subject()).to.equal('subjectFoo');
