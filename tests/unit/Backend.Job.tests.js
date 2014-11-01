@@ -30,7 +30,7 @@ describe('backendJob', function () {
 
         before(function () {
             MailJob = require('../../lib/backend/MailJob');
-            mailJob = new MailJob('fromFoo', 'toFoo', 'subjectFoo', 'templateFoo', {data: 'foo'});
+            mailJob = new MailJob('fromFoo', 'toFoo', 'subjectFoo', 'templateFoo', {data: 'foo'}, 'de');
         });
 
         it('should return the correct Job', function () {
@@ -44,13 +44,14 @@ describe('backendJob', function () {
                 template: 'templateFoo',
                 data: {
                     data: 'foo'
-                }
+                },
+                language: 'de'
             });
         });
 
         it('should return the correct Job from payload', function () {
             var createdJob = MailJob.fromPayload({
-                to: 'toFoo', from: 'fromFoo', subject: 'subjectFoo', template: 'templateFoo', data: {data: 'foo'}
+                to: 'toFoo', from: 'fromFoo', subject: 'subjectFoo', template: 'templateFoo', data: {data: 'foo'}, language: 'fooLanguage'
             }).createPersistenceJob().toJSON();
 
             expect(createdJob.type).to.equal('mail');
@@ -61,7 +62,8 @@ describe('backendJob', function () {
                 template: 'templateFoo',
                 data: {
                     data: 'foo'
-                }
+                },
+                language: 'fooLanguage'
             });
         });
     });
