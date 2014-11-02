@@ -40,8 +40,7 @@ describe('backendJob', function () {
             var mailJob;
 
             before(function () {
-                mailJob = new MailJob('fromFoo', 'toFoo', 'subjectFoo', 'templateFoo', {data: 'foo'}, 'de');
-                mailJob.id('idFoo');
+                mailJob = new MailJob('idFoo', 'fromFoo', 'toFoo', 'subjectFoo', 'templateFoo', {data: 'foo'}, 'de');
             });
 
             it('should return the correct Job', function () {
@@ -73,10 +72,10 @@ describe('backendJob', function () {
             var persistenceJob, mailJob;
 
             before(function() {
-                mailJob = MailJob.fromPayload({
-                    to: 'toFoo', from: 'fromFoo', subject: 'subjectFoo', template: 'templateFoo', data: {data: 'foo'}, language: 'fooLanguage'
+                mailJob = MailJob.fromPersistenceJob({
+                    payload:{to: 'toFoo', from: 'fromFoo', subject: 'subjectFoo', template: 'templateFoo', data: {data: 'foo'}, language: 'fooLanguage'},
+                    _id: 'idFoo'
                 });
-                mailJob.id('idFoo');
                 persistenceJob = mailJob.createPersistenceJob().toJSON();
             });
 
