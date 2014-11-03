@@ -28,7 +28,8 @@ function dbPrepare (callback) {
                 title: 'fooTitle1',
                 content: 'fooContent1',
                 organisation: 'foo_organisation',
-                author: '50341373e894ad16347efe02'
+                author: '50341373e894ad16347efe02',
+                createDate: '2014-01-01 00:00:00'
             })).save(callback);
         },
         function (callback) {
@@ -37,7 +38,8 @@ function dbPrepare (callback) {
                 title: 'fooTitle2',
                 content: 'fooContent2',
                 organisation: 'foo_organisation',
-                author: '50341373e894ad16347efe02'
+                author: '50341373e894ad16347efe02',
+                createDate: '2013-01-01 00:00:00'
             })).save(callback);
         },
         function (callback) {
@@ -47,6 +49,7 @@ function dbPrepare (callback) {
                 content: 'fooContent3',
                 organisation: 'foo_organisation',
                 author: '50341373e894ad16347efe02',
+                createDate: '2014-01-01 00:00:00',
                 bought: {
                     author: '50341373e894ad16347efe02'
                 },

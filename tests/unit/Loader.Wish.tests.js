@@ -271,4 +271,26 @@ describe('Wishloader', function () {
             });
         });
     });
+
+    describe('loadWishesByCreateDate', function () {
+        var wishes, error;
+
+        describe('success', function () {
+            before(function (done) {
+                wishLoader.loadWishesByCreateDate('2013-11-31', function (_error, _wishes) {
+                    wishes = _wishes;
+                    error = _error;
+                    done();
+                });
+            });
+
+            it('should not return an error', function () {
+                expect(error).to.be.null;
+            });
+
+            it('should return the correct number of wishes', function () {
+                expect(wishes.length).to.equal(4);
+            });
+        });
+    });
 });
