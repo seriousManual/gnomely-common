@@ -1,6 +1,6 @@
 {
   "name": "gnomely-common",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "gnomely common elements",
   "main": "index.js",
   "scripts": {},
