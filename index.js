@@ -7,5 +7,6 @@ module.exports = {
     },
     jobs: {
         Mail: require('./lib/backend/MailJob')
-    }
+    },
+    LinkGenerator: {}
 };
