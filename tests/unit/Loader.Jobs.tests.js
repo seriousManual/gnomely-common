@@ -86,4 +86,33 @@ describe('JobLoader', function () {
             expect(job.ack).to.be.true;
         });
     });
+
+    describe('createMailJob', function() {
+        var error, job;
+
+        before(function (done) {
+            (new JobLoader()).createMailJob('fooFrom@mail.com', 'fooTo@mail.com', 'fooWishSubject', 'fooWishBody', {foo: 'bar'}, 'de', function(_error, _job) {
+                error = _error;
+                job = _job;
+                done();
+            });
+        });
+
+        it('should not return an error', function() {
+            expect(error).to.be.null;
+        });
+
+        it('should create an job', function() {
+            expect(job.type).to.equal('mail');
+            expect(job.payload).to.deep.equal({
+                data: {foo: 'bar'},
+                from: 'fooFrom@mail.com',
+                language: 'de',
+                subject: 'fooWishSubject',
+                template: 'fooWishBody',
+                to: 'fooTo@mail.com'
+            });
+            expect(job.ack).to.be.false;
+        });
+    });
 });
