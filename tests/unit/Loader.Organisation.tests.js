@@ -40,6 +40,8 @@ describe('OrganisationLoader', function () {
 
         it('should load the members', function () {
             expect(result.members[0].name).to.equal('fooName');
+            expect(result.members[0]._id.toString()).to.equal('50341373e894ad16347efe02');
+            expect(result.members[0].mail).to.equal('foo@mail.com');
         });
     });
 
