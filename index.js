@@ -8,5 +8,5 @@ module.exports = {
     jobs: {
         Mail: require('./lib/backend/MailJob')
     },
-    LinkGenerator: {}
+    LinkGenerator: require('./lib/util/LinkGenerator')
 };
