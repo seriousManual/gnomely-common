@@ -266,8 +266,8 @@ describe('Wishloader', function () {
                 expect(error).to.be.null;
             });
 
-            it('should set the correct user id @ bought', function () {
-                expect(wish.comments.length).to.equal(0);
+            it('should return only one comment', function () {
+                expect(wish.comments.length).to.equal(1);
             });
         });
     });
@@ -290,6 +290,29 @@ describe('Wishloader', function () {
 
             it('should return the correct number of wishes', function () {
                 expect(wishes.length).to.equal(4);
+            });
+        });
+    });
+
+    describe('loadWishesByCommentsDate', function () {
+        var wishes, error;
+
+        describe('success', function () {
+            before(function (done) {
+                wishLoader.loadWishesByCommentsDate('2014-01-01', function (_error, _wishes) {
+                    wishes = _wishes;
+                    error = _error;
+                    done();
+                });
+            });
+
+            it('should not return an error', function () {
+                expect(error).to.be.null;
+            });
+
+            it('should return the one wish that has an comment thats younger than 2013-12-31', function () {
+                expect(wishes[0].title).to.deep.equal('fooTitle2');
+                expect(wishes[0].comments[0].text).to.deep.equal('fooText');
             });
         });
     });

@@ -57,7 +57,14 @@ function dbPrepare (callback) {
                     {
                         _id: '50313373e894ad16347efe05',
                         author: {_id: '50341373e894ad16347efe02', name: 'fooName'},
-                        text: 'fooCommentText'
+                        text: 'fooCommentText (firstComment)',
+                        createDate: '2014-01-01 00:00:00'
+                    },
+                    {
+                        _id: '50313373e894ad16347efe06',
+                        author: {_id: '50341373e894ad16347efe02', name: 'fooName'},
+                        text: 'fooCommentText (secondComment)',
+                        createDate: '2011-01-01 00:00:00'
                     }
                 ]
             })).save(callback);
