@@ -194,6 +194,7 @@ describe('Wishloader', function () {
 
             it('should return the wish author', function () {
                 expect(result.author.name).to.equal('fooName');
+                expect(result.author.mail).to.equal('foo@mail.com');
             });
 
             it('should return the wish bought', function () {
