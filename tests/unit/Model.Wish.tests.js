@@ -103,14 +103,13 @@ describe('WishModel', function () {
             u.save(function (error, wish) {
                 if (error) throw error;
 
-                wish.comments.push({author: {_id: '50341373e894ad16347efe01', name: 'fooCommentAuthorName'}, text: 'fooCOmmentTest'});
+                wish.comments.push({author: '50341373e894ad16347efe01', text: 'fooCOmmentTest'});
                 wish.save(done);
             });
         });
 
         it('should save the comment', function () {
-            expect(u.comments[0].author._id.toString()).to.equal('50341373e894ad16347efe01');
-            expect(u.comments[0].author.name).to.equal('fooCommentAuthorName');
+            expect(u.comments[0].author.toString()).to.equal('50341373e894ad16347efe01');
             expect(u.comments[0].createDate.toISOString()).to.equal('1970-01-01T00:00:01.337Z');
             expect(u.comments[0].text).to.equal('fooCOmmentTest');
         });

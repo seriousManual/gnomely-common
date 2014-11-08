@@ -199,6 +199,18 @@ describe('Wishloader', function () {
             it('should return the wish bought', function () {
                 expect(result.bought.author.name).to.equal('fooName');
             });
+
+            it('should return the wishs comments + the comments author', function() {
+                expect(result.comments[0].text).to.equal('fooCommentText (firstComment)');
+                expect(result.comments[0].author._id.toString()).to.equal('50341373e894ad16347efe02');
+                expect(result.comments[0].author.name).to.equal('fooName');
+                expect(result.comments[0].author.mail).to.equal('foo@mail.com');
+
+                expect(result.comments[1].text).to.equal('fooCommentText (secondComment)');
+                expect(result.comments[1].author._id.toString()).to.equal('50341373e894ad16347efe02');
+                expect(result.comments[1].author.name).to.equal('fooName');
+                expect(result.comments[1].author.mail).to.equal('foo@mail.com');
+            });
         });
     });
 
@@ -242,8 +254,7 @@ describe('Wishloader', function () {
             });
 
             it('should have added an comment', function () {
-                expect(wish.comments[0].author._id.toString()).to.equal('50341373e894ad16347efe02');
-                expect(wish.comments[0].author.name).to.equal('fooName');
+                expect(wish.comments[0].author.toString()).to.equal('50341373e894ad16347efe02');
                 expect(wish.comments[0].createDate).not.to.be.null;
                 expect(wish.comments[0].text).to.equal('fooText');
             });
