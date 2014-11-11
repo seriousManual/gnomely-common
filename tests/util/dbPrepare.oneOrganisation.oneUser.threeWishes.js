@@ -51,7 +51,8 @@ function dbPrepare (callback) {
                 author: '50341373e894ad16347efe02',
                 createDate: '2014-01-01 00:00:00',
                 bought: {
-                    author: '50341373e894ad16347efe02'
+                    author: '50341373e894ad16347efe02',
+                    createDate: '2013-01-01 00:00:00'
                 },
                 comments: [
                     {

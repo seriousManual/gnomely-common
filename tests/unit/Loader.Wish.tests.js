@@ -306,6 +306,28 @@ describe('Wishloader', function () {
         });
     });
 
+    //describe('loadWishesByBoughtDate', function () {
+    //    var wishes, error;
+    //
+    //    describe('success', function () {
+    //        before(function (done) {
+    //            wishLoader.loadWishesByBoughtDate('2014-12-01', function (_error, _wishes) {
+    //                wishes = _wishes;
+    //                error = _error;
+    //                done();
+    //            });
+    //        });
+    //
+    //        it('should not return an error', function () {
+    //            expect(error).to.be.null;
+    //        });
+    //
+    //        it('should return the correct number of wishes', function () {
+    //            expect(wishes.length).to.equal(4);
+    //        });
+    //    });
+    //});
+
     describe('loadWishesByCommentsDate', function () {
         var wishes, error;
 
