@@ -33,7 +33,14 @@ function dbPrepare (callback) {
                 },
                 organisation: 'foo_organisation',
                 author: '50341373e894ad16347efe02',
-                createDate: '2014-01-01 00:00:00'
+                createDate: '2014-01-01 00:00:00',
+                likes: [
+                    {
+                        _id: '11231373e894ad16347efe02',
+                        author: '50341373e894ad16347efe02',
+                        createDate: '2013-01-01 00:00:00'
+                    }
+                ]
             })).save(callback);
         },
         function (callback) {
