@@ -29,7 +29,7 @@ function dbPrepare (callback) {
                 content: 'fooContent1',
                 bought: {
                     author: '50341373e894ad16347efe02',
-                    createDate: '2013-01-01 00:00:00'
+                    createDate: '2013-01-01T10:00:00.000Z'
                 },
                 organisation: 'foo_organisation',
                 author: '50341373e894ad16347efe02',

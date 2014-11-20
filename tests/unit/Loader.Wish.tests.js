@@ -138,7 +138,7 @@ describe('Wishloader', function () {
             it('should return all wishes with their corresponding authors and bought (if set)', function () {
                 expect(result[0].title).to.equal('fooTitle1');
                 expect(result[0].author.name).to.equal('fooName');
-                expect(JSON.stringify(result[0].bought)).to.equal('{"createDate":"2012-12-31T23:00:00.000Z","author":{"_id":"50341373e894ad16347efe02","name":"fooName"}}');
+                expect(JSON.stringify(result[0].bought)).to.equal('{"createDate":"2013-01-01T10:00:00.000Z","author":{"_id":"50341373e894ad16347efe02","name":"fooName"}}');
 
                 expect(result[1].title).to.equal('fooTitle2');
                 expect(result[1].author.name).to.equal('fooName');
