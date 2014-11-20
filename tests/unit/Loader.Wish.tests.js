@@ -216,6 +216,9 @@ describe('Wishloader', function () {
             it('should return the wishs likes + the likes author', function() {
                 expect(result.likes[0].author._id.toString()).to.equal('50341373e894ad16347efe02');
                 expect(result.likes[0].author.name.toString()).to.equal('fooName');
+
+                expect(result.likes[1].author._id.toString()).to.equal('50341373e894ad16347efe02');
+                expect(result.likes[1].author.name.toString()).to.equal('fooName');
             })
         });
     });

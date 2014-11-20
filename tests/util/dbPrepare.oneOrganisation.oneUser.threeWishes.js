@@ -77,6 +77,12 @@ function dbPrepare (callback) {
                         _id: '11231373e894ad16347efe02',
                         author: '50341373e894ad16347efe02',
                         createDate: '2013-01-01 00:00:00'
+                    },
+
+                    {
+                        _id: '11231373e894ad16347efe03',
+                        author: '50341373e894ad16347efe02',
+                        createDate: '2010-01-01 00:00:00'
                     }
                 ]
             })).save(callback);
