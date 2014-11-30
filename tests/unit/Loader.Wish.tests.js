@@ -403,4 +403,30 @@ describe('Wishloader', function () {
             });
         });
     });
+
+    describe('loadWishesByLikesDate', function () {
+        var wishes, error;
+
+        describe('success', function () {
+            before(function (done) {
+                wishLoader.loadWishesByLikesDate('2014-01-01', function (_error, _wishes) {
+                    wishes = _wishes;
+                    error = _error;
+                    done();
+                });
+            });
+
+            it('should not return an error', function () {
+                expect(error).to.be.null;
+            });
+
+            it('should return the one wish that has likes thats younger than 2014-01-01', function () {
+                expect(wishes.length).to.equal(1);
+
+                expect(wishes[0].title).to.deep.equal('fooTitle2');
+                expect(wishes[0].likes.length).to.equal(1);
+                expect(wishes[0].likes[0].author.name).to.equal('fooName');
+            });
+        });
+    });
 });
