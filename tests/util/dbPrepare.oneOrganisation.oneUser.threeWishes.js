@@ -10,7 +10,8 @@ function dbPrepare (callback) {
             (new OrganisationModel({
                 _id: '50341373e894ad16347efe01',
                 name: 'Foo Organisation',
-                members: ['50341373e894ad16347efe02']
+                members: ['50341373e894ad16347efe02'],
+                administrators: ['50341373e894ad16347efe02']
             })).save(callback);
         },
         function (callback) {

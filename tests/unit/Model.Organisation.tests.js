@@ -41,4 +41,25 @@ describe('OrganisationModel', function () {
             });
         });
     });
+
+    describe('population', function() {
+        var org;
+
+        before(function(done) {
+            OrganisationModel
+                .findOne({ident: 'foo_organisation'})
+                .populate('members', '_id name mail')
+                .populate('administrators', '_id name mail')
+                .exec(function(error, _org) {
+                    org = _org;
+
+                    done(error);
+                });
+        });
+
+        it('should populate members and administrators', function() {
+            expect(org.members[0].name).to.equal('fooName');
+            expect(org.administrators[0].name).to.equal('fooName');
+        });
+    })
 });
