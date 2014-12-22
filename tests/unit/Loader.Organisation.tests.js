@@ -43,6 +43,12 @@ describe('OrganisationLoader', function () {
             expect(result.members[0]._id.toString()).to.equal('50341373e894ad16347efe02');
             expect(result.members[0].mail).to.equal('foo@mail.com');
         });
+
+        it('should load the administrators', function() {
+            expect(result.administrators[0]._id.toString()).to.equal('50341373e894ad16347efe02');
+            expect(result.administrators[0].name).to.equal('fooName');
+            expect(result.administrators[0].mail).to.equal('foo@mail.com');
+        });
     });
 
     describe('loadOrganisationByIdent (not found)', function () {

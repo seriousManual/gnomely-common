@@ -10,7 +10,8 @@ function dbPrepare (callback) {
             (new OrganisationModel({
                 _id: '50341373e894ad16347efe01',
                 name: 'Foo Organisation',
-                members: ['50341373e894ad16347efe02']
+                members: ['50341373e894ad16347efe02'],
+                administrators: ['50341373e894ad16347efe02']
             })).save(callback);
         },
         function (callback) {
@@ -27,6 +28,10 @@ function dbPrepare (callback) {
                 _id: '50341373e894ad16347efe03',
                 title: 'fooTitle1',
                 content: 'fooContent1',
+                bought: {
+                    author: '50341373e894ad16347efe02',
+                    createDate: '2013-01-01T10:00:00.000Z'
+                },
                 organisation: 'foo_organisation',
                 author: '50341373e894ad16347efe02',
                 createDate: '2014-01-01 00:00:00'
@@ -66,6 +71,19 @@ function dbPrepare (callback) {
                         author: '50341373e894ad16347efe02',
                         text: 'fooCommentText (secondComment)',
                         createDate: '2011-01-01 00:00:00'
+                    }
+                ],
+                likes: [
+                    {
+                        _id: '11231373e894ad16347efe02',
+                        author: '50341373e894ad16347efe02',
+                        createDate: '2013-01-01 00:00:00'
+                    },
+
+                    {
+                        _id: '11231373e894ad16347efe03',
+                        author: '50341373e894ad16347efe02',
+                        createDate: '2010-01-01 00:00:00'
                     }
                 ]
             })).save(callback);
