@@ -6,7 +6,8 @@ module.exports = {
         WishLoader: require('./lib/persistence/loader/WishLoader')
     },
     jobs: {
-        Mail: require('./lib/backend/MailJob')
+        Mail: require('./lib/backend/MailJob'),
+        Invite: require('./lib/backend/InviteJob')
     },
     LinkGenerator: require('./lib/util/LinkGenerator')
 };

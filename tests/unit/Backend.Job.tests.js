@@ -102,4 +102,62 @@ describe('backendJob', function () {
             });
         });
     });
+
+    describe('InviteJob', function () {
+        var InviteJob;
+
+        before(function () {
+            InviteJob = require('../../').jobs.Invite;
+        });
+
+        it('should hava a key', function() {
+            expect(InviteJob.key).to.equal('invite');
+        });
+
+        describe('createJob', function() {
+            var inviteJob;
+
+            before(function () {
+                inviteJob = new InviteJob('fooId', 'fooName', 'fooMail');
+            });
+
+            it('should return the correct Job', function () {
+                var persistenceJob = inviteJob.createPersistenceJob().toJSON();
+
+                expect(persistenceJob.type).to.equal('invite');
+                expect(persistenceJob.payload).to.deep.equal({
+                    name: 'fooName',
+                    mail: 'fooMail'
+                });
+
+                expect(inviteJob.id()).to.equal('fooId');
+                expect(inviteJob.name()).to.equal('fooName');
+                expect(inviteJob.mail()).to.equal('fooMail');
+            });
+        });
+
+        describe('createJob from payload', function() {
+            var persistenceJob, inviteJob;
+
+            before(function() {
+                inviteJob = InviteJob.fromPersistenceJob({
+                    payload:{name: 'fooName', mail: 'fooMail'},
+                    _id: 'fooId'
+                });
+                persistenceJob = inviteJob.createPersistenceJob().toJSON();
+            });
+
+            it('should return the correct Job from payload', function () {
+                expect(persistenceJob.type).to.equal('invite');
+                expect(persistenceJob.payload).to.deep.equal({
+                    name: 'fooName',
+                    mail: 'fooMail'
+                });
+
+                expect(inviteJob.id()).to.equal('fooId');
+                expect(inviteJob.name()).to.equal('fooName');
+                expect(inviteJob.mail()).to.equal('fooMail');
+            });
+        });
+    });
 });
