@@ -115,4 +115,30 @@ describe('JobLoader', function () {
             expect(job.ack).to.be.false;
         });
     });
+
+    describe('createInviteJob', function() {
+        var error, job;
+
+        before(function (done) {
+            (new JobLoader()).createInviteJob('fooName', 'fooMail', 'fooOrgIdent', function(_error, _job) {
+                error = _error;
+                job = _job;
+                done();
+            });
+        });
+
+        it('should not return an error', function() {
+            expect(error).to.be.null;
+        });
+
+        it('should create an job', function() {
+            expect(job.type).to.equal('invite');
+            expect(job.payload).to.deep.equal({
+                name: 'fooName',
+                mail: 'fooMail',
+                orgIdent: 'fooOrgIdent'
+            });
+            expect(job.ack).to.be.false;
+        });
+    });
 });
