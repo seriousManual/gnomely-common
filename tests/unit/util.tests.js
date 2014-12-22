@@ -22,5 +22,9 @@ describe('Util', function () {
         it('should generate an organisation url', function() {
             expect(a.generateOrganisationUrl('bar_orga')).to.equal('http://foo.com/#/org/bar_orga');
         });
+
+        it('should generate an invite link', function() {
+            expect(a.generateInviteUrl('bar_orga')).to.equal('http://foo.com/#/org/bar_orga/invite');
+        });
     });
 });
