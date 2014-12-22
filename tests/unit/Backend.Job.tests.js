@@ -118,7 +118,7 @@ describe('backendJob', function () {
             var inviteJob;
 
             before(function () {
-                inviteJob = new InviteJob('fooId', 'fooName', 'fooMail');
+                inviteJob = new InviteJob('fooId', 'fooName', 'fooMail', 'fooOrg');
             });
 
             it('should return the correct Job', function () {
@@ -127,12 +127,14 @@ describe('backendJob', function () {
                 expect(persistenceJob.type).to.equal('invite');
                 expect(persistenceJob.payload).to.deep.equal({
                     name: 'fooName',
-                    mail: 'fooMail'
+                    mail: 'fooMail',
+                    orgIdent: 'fooOrg'
                 });
 
                 expect(inviteJob.id()).to.equal('fooId');
                 expect(inviteJob.name()).to.equal('fooName');
                 expect(inviteJob.mail()).to.equal('fooMail');
+                expect(inviteJob.orgIdent()).to.equal('fooOrg');
             });
         });
 
@@ -141,7 +143,7 @@ describe('backendJob', function () {
 
             before(function() {
                 inviteJob = InviteJob.fromPersistenceJob({
-                    payload:{name: 'fooName', mail: 'fooMail'},
+                    payload:{name: 'fooName', mail: 'fooMail', orgIdent: 'fooOrg'},
                     _id: 'fooId'
                 });
                 persistenceJob = inviteJob.createPersistenceJob().toJSON();
@@ -151,12 +153,14 @@ describe('backendJob', function () {
                 expect(persistenceJob.type).to.equal('invite');
                 expect(persistenceJob.payload).to.deep.equal({
                     name: 'fooName',
-                    mail: 'fooMail'
+                    mail: 'fooMail',
+                    orgIdent: 'fooOrg'
                 });
 
                 expect(inviteJob.id()).to.equal('fooId');
                 expect(inviteJob.name()).to.equal('fooName');
                 expect(inviteJob.mail()).to.equal('fooMail');
+                expect(inviteJob.orgIdent()).to.equal('fooOrg');
             });
         });
     });
