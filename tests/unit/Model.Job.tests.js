@@ -54,7 +54,7 @@ describe('JobModel', function () {
         });
     });
 
-    describe('create a job /w success /w payloade', function () {
+    describe('create a job /w success /w payload', function () {
         var j, error;
 
         before(function (done) {

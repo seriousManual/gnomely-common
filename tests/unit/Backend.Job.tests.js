@@ -118,7 +118,7 @@ describe('backendJob', function () {
             var inviteJob;
 
             before(function () {
-                inviteJob = new InviteJob('fooId', 'fooName', 'fooMail', 'fooOrg');
+                inviteJob = new InviteJob('fooId', 'fooName', 'fooMail', 'fooToken', 'fooOrg');
             });
 
             it('should return the correct Job', function () {
@@ -128,12 +128,14 @@ describe('backendJob', function () {
                 expect(persistenceJob.payload).to.deep.equal({
                     name: 'fooName',
                     mail: 'fooMail',
+                    token: 'fooToken',
                     orgIdent: 'fooOrg'
                 });
 
                 expect(inviteJob.id()).to.equal('fooId');
                 expect(inviteJob.name()).to.equal('fooName');
                 expect(inviteJob.mail()).to.equal('fooMail');
+                expect(inviteJob.token()).to.equal('fooToken');
                 expect(inviteJob.orgIdent()).to.equal('fooOrg');
             });
         });
@@ -143,7 +145,7 @@ describe('backendJob', function () {
 
             before(function() {
                 inviteJob = InviteJob.fromPersistenceJob({
-                    payload:{name: 'fooName', mail: 'fooMail', orgIdent: 'fooOrg'},
+                    payload:{name: 'fooName', mail: 'fooMail', token: 'fooToken', orgIdent: 'fooOrg'},
                     _id: 'fooId'
                 });
                 persistenceJob = inviteJob.createPersistenceJob().toJSON();
@@ -154,12 +156,14 @@ describe('backendJob', function () {
                 expect(persistenceJob.payload).to.deep.equal({
                     name: 'fooName',
                     mail: 'fooMail',
+                    token: 'fooToken',
                     orgIdent: 'fooOrg'
                 });
 
                 expect(inviteJob.id()).to.equal('fooId');
                 expect(inviteJob.name()).to.equal('fooName');
                 expect(inviteJob.mail()).to.equal('fooMail');
+                expect(inviteJob.token()).to.equal('fooToken');
                 expect(inviteJob.orgIdent()).to.equal('fooOrg');
             });
         });

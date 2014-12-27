@@ -120,7 +120,7 @@ describe('JobLoader', function () {
         var error, job;
 
         before(function (done) {
-            (new JobLoader()).createInviteJob('fooName', 'fooMail', 'fooOrgIdent', function(_error, _job) {
+            (new JobLoader()).createInviteJob('fooName', 'fooMail', 'fooToken', 'fooOrgIdent', function(_error, _job) {
                 error = _error;
                 job = _job;
                 done();
@@ -136,6 +136,7 @@ describe('JobLoader', function () {
             expect(job.payload).to.deep.equal({
                 name: 'fooName',
                 mail: 'fooMail',
+                token: 'fooToken',
                 orgIdent: 'fooOrgIdent'
             });
             expect(job.ack).to.be.false;
