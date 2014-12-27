@@ -24,7 +24,7 @@ describe('Util', function () {
         });
 
         it('should generate an invite link', function() {
-            expect(a.generateInviteUrl('bar_orga')).to.equal('http://foo.com/#/org/bar_orga/invite');
+            expect(a.generateInviteUrl('bar_orga', 'fooToken')).to.equal('http://foo.com/#/org/bar_orga/invite?token=fooToken');
         });
     });
 });
