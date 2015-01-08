@@ -21,12 +21,12 @@ describe('InviteModel', function () {
         var invite;
 
         before(function(done) {
-            invite = new InviteModel({organisationIdent: 'fooOrgIdent', mail: 'fooMail', name: 'fooName'});
+            invite = new InviteModel({organisationId: 'fooOrgId', mail: 'fooMail', name: 'fooName'});
             invite.save(done);
         });
 
         it('should', function() {
-            expect(invite.organisationIdent).to.equal('fooOrgIdent');
+            expect(invite.organisationId).to.equal('fooOrgId');
             expect(invite.ack).to.be.false;
             expect(invite.mail).to.equal('fooMail');
             expect(invite.name).to.equal('fooName');
