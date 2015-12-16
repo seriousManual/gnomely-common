@@ -1,1 +1,1 @@
-# gnomely-common [![Build Status](https://travis-ci.org/zaphod1984/gnomely-common.png)](https://travis-ci.org/zaphod1984/gnomely-common)
+# gnomely-common [![Build Status](https://travis-ci.org/seriousManual/gnomely-common.png)](https://travis-ci.org/seriousManual/gnomely-common)
