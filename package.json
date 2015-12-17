@@ -4,7 +4,8 @@
   "description": "gnomely common elements",
   "main": "index.js",
   "scripts": {
-    "test": "npm prune && ./node_modules/.bin/mocha tests"
+    "test": "npm prune && ./node_modules/.bin/mocha tests",
+    "travis": "npm i npm@2 -g && npm i && npm test"
   },
   "repository": {
     "type": "git",
