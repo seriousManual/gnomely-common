@@ -2,15 +2,13 @@ var mockgoose = require('mockgoose');
 var expect = require('chai').use(require('sinon-chai')).expect;
 var sinon = require('sinon');
 
-var mocks = require('../util/mocks');
-
 describe('OrganisationModel', function () {
     var OrganisationModel;
 
     before(function (done) {
-        OrganisationModel = require('../../lib/persistence/model/Organisation');
+        OrganisationModel = require('../lib/persistence/model/Organisation');
 
-        require('../util/dbPrepare.oneOrganisation.oneUser.threeWishes')(done);
+        require('./util/dbPrepare.oneOrganisation.oneUser.threeWishes.js')(done);
     });
 
     after(function () {

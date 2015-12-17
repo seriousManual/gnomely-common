@@ -2,15 +2,13 @@ var mockgoose = require('mockgoose');
 var expect = require('chai').use(require('sinon-chai')).expect;
 var sinon = require('sinon');
 
-var mocks = require('../util/mocks');
-
 describe('JobLoader', function () {
     var JobLoader;
 
     before(function (done) {
-        JobLoader = require('../../').loader.JobLoader;
+        JobLoader = require('../index').loader.JobLoader;
 
-        require('../util/dbPrepare.threeJobs')(done);
+        require('./util/dbPrepare.threeJobs.js')(done);
     });
 
     after(function () {

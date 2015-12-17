@@ -3,7 +3,9 @@
   "version": "1.15.2",
   "description": "gnomely common elements",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "test": "npm prune && ./node_modules/.bin/mocha tests"
+  },
   "repository": {
     "type": "git",
     "url": "git://github.com/zaphod1984/gnomely-common.git"

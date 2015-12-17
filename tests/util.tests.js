@@ -2,8 +2,8 @@ var mockgoose = require('mockgoose');
 var expect = require('chai').use(require('sinon-chai')).expect;
 var sinon = require('sinon');
 
-var randomString = require('../../lib/util/randomString');
-var LinkGenerator = require('../../lib/util/LinkGenerator');
+var randomString = require('../lib/util/randomString');
+var LinkGenerator = require('../lib/util/LinkGenerator');
 
 describe('Util', function () {
     describe('RandomString', function () {

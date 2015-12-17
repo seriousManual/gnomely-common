@@ -1,13 +1,11 @@
 var mockgoose = require('mockgoose');
 var expect = require('chai').use(require('sinon-chai')).expect;
 
-var mocks = require('../util/mocks');
-
 describe('UserModel', function () {
     var UserModel;
 
     before(function () {
-        UserModel = require('../../lib/persistence/model/User');
+        UserModel = require('../lib/persistence/model/User');
     });
 
     after(function () {

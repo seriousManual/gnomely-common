@@ -2,16 +2,16 @@ var mockgoose = require('mockgoose');
 var expect = require('chai').use(require('sinon-chai')).expect;
 var sinon = require('sinon');
 
-var mocks = require('../util/mocks');
+var mocks = require('./util/mocks');
 
 describe('MiscLoader', function () {
     var miscLoader, MiscLoader;
 
     before(function (done) {
-        MiscLoader = require('../../').loader.MiscLoader;
+        MiscLoader = require('../index').loader.MiscLoader;
         miscLoader = new MiscLoader();
 
-        require('../util/dbPrepare.twoInvites')(done);
+        require('./util/dbPrepare.twoInvites.js')(done);
     });
 
     after(function () {

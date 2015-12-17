@@ -7,7 +7,7 @@ describe('backendJob', function () {
         var job, Job;
 
         before(function () {
-            Job = require('../../lib/backend/Job');
+            Job = require('../lib/backend/Job');
             job = new Job('foo');
         });
 
@@ -29,7 +29,7 @@ describe('backendJob', function () {
         var MailJob;
 
         before(function () {
-            MailJob = require('../../').jobs.Mail;
+            MailJob = require('../index').jobs.Mail;
         });
 
         it('should hava a key', function() {
@@ -107,7 +107,7 @@ describe('backendJob', function () {
         var InviteJob;
 
         before(function () {
-            InviteJob = require('../../').jobs.Invite;
+            InviteJob = require('../index').jobs.Invite;
         });
 
         it('should hava a key', function() {

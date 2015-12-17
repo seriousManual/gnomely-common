@@ -2,13 +2,11 @@ var mockgoose = require('mockgoose');
 var expect = require('chai').use(require('sinon-chai')).expect;
 var sinon = require('sinon');
 
-var mocks = require('../util/mocks');
-
 describe('WishModel', function () {
     var clock, WishModel;
 
     before(function () {
-        WishModel = require('../../lib/persistence/model/Wish');
+        WishModel = require('../lib/persistence/model/Wish');
         clock = sinon.useFakeTimers(0, 'Date');
     });
 
